@@ -39,7 +39,7 @@ public class Position
 
     public boolean hasArrived(){
         if(distance == 0){
-            return true
+            return true;
         }
         return false;
     }
@@ -54,9 +54,8 @@ public class Position
         return false;
     }
 
-
-    public boolean turnAround(){
-        
+    public void turnAround(){
+        distance = total-distance;
     }
 
 }

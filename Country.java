@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Map;
+import java.util.*;
 
 /**
  * Write a description of class Country here.
@@ -7,27 +10,55 @@
  */
 public class Country
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private Map<City,List<Road>> network;
+    private String name;
+    private Country country;
 
-    /**
-     * Constructor for objects of class Country
-     */
-    public Country()
-    {
-        // initialise instance variables
-        x = 0;
+    public Country(Map<City, List<Road>> network, String name) {
+        this.network = network;
+        this.name = name;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public Map<City, List<Road>> getNetwork() {
+        return network;
     }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Road> getRoads(City city){
+        return network.get(city);
+    }
+
+    public List<City> getCities(){
+        List<City> cities  = new ArrayList<>(network.keySet());
+        Collections.sort(cities);
+        return cities;
+    }
+
+    public City getCity(String name){
+        for (City city : getCities() ){
+            if(city.getName().equals(name)){
+                return city;
+            }
+        }
+        return null;
+    }
+
+    public void reset(){
+        network.clear();
+    }
+
+    public int bonus(int value){
+        int bonus;
+        Random r = new Random();
+        bonus = r.nextInt(value)+0;
+        return bonus;
+    }
+
 }

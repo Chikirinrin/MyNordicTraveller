@@ -12,7 +12,7 @@ public class City implements Comparable<City>
     private int value;
     private int initialValue;
 
-    public City(String name, int value)
+    public City(String name, int value, Country country)
     {
         this.name=name;
     }
