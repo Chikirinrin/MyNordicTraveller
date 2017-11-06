@@ -11,9 +11,9 @@ public class City implements Comparable<City>
     private String name;
     private int value;
     private int initialValue;
+    private Country country;
 
-    public City(String name, int value, Country country)
-    {
+    public City(String name, int value, Country country) {
         this.name=name;
     }
 
@@ -36,8 +36,13 @@ public class City implements Comparable<City>
     public void reset(){
         this.value = getInitialValue();
     }
-    public int compareTo(City city)
-    {
+    public int compareTo(City city) {
         return name.compareTo(city.getName());
+    }
+
+    public int arrive(){
+        int ab;
+        ab = getInitialValue()-country.bonus(getInitialValue());
+        return ab;
     }
 }
