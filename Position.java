@@ -8,26 +8,44 @@
 public class Position
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private City from;
+    private City to;
+    private int distance;
+    private int total;
 
-    /**
-     * Constructor for objects of class Position
-     */
-    public Position()
-    {
-        // initialise instance variables
-        x = 0;
+
+    public Position(City from, City to, int distance) {
+        this.from = from; // Byen vi kommer fra
+        this.to = to; // Byen vi er på vej til
+        this.distance = distance; // Afstand der er tilbage
+        this.total = distance; // Totale afstand
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public City getFrom() {
+        return from;
     }
+
+    public City getTo() {
+        return to;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public Boolean hasArrived(){
+        if(distance == 0){
+            return true
+        }
+        return false;
+    }
+
+    public Boolean turnAround(){
+        
+    }
+
 }

@@ -30,12 +30,14 @@ public class City implements Comparable<City>
     }
 
     public void changeValue(int amount){
-        getValue()
-
+        this.value = getValue()+amount;
     }
-    public int compareTo(City)
+
+    public void reset(){
+        this.value = getInitialValue();
+    }
+    public int compareTo(City city)
     {
-        // put your code here
-        return x + y;
+        return name.compareTo(city.getName());
     }
 }

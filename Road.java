@@ -5,18 +5,20 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Road
+public class Road implements Comparable<Road>
 {
     // instance variables - replace the example below with your own
-    private ;
+    private City from;
+    private City to;
+    private int length;
 
     /**
      * Constructor for objects of class Road
      */
-    public Road()
-    {
-        // initialise instance variables
-        x = 0;
+    public Road(City from, City to, int length) {
+        this.from = from;
+        this.to = to;
+        this.length = length;
     }
 
     /**
@@ -25,9 +27,23 @@ public class Road
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public City getFrom() {
+        return from;
     }
+
+    public City getTo() {
+        return to;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int compareTo(Road road){
+        if(road.from.equals(road.getFrom())){
+            return to.compareTo(road.getTo());
+        }
+        return from.compareTo(road.getFrom());
+    }
+
 }
