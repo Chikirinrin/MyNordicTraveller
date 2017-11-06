@@ -37,14 +37,25 @@ public class Position
         return total;
     }
 
-    public Boolean hasArrived(){
+    public boolean hasArrived(){
         if(distance == 0){
             return true
         }
         return false;
     }
 
-    public Boolean turnAround(){
+    // Tæller distance 1 ned hvis distance > 0.
+    // Returværdien angiver om distance ændres.
+    public boolean move(){
+        if(distance > 0){
+            distance = distance - 1;
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean turnAround(){
         
     }
 
