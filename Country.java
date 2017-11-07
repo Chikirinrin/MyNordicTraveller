@@ -54,11 +54,51 @@ public class Country
         network.clear();
     }
 
+    // Beregner størrelsen af den bonus, som spilleren modtager.
     public int bonus(int value){
-        int bonus;
-        Random r = new Random();
-        bonus = r.nextInt(value)+0;
-        return bonus;
+        if(value>0){
+            Random r = new Random();
+            return r.nextInt(value) + 0;
+
+        }
+        return 0;
     }
 
+    //Tilføjer veje mellem a og b.
+    public void addRoads(City a, City b, int length){
+        if(network.containsKey(a) && network.containsKey(b)){
+            Road roadab = new Road(a,b,length);
+            Road roadba = new Road(b,a,length);
+            network.get(a).add(roadab);
+            network.get(b).add(roadba);
+        } else if(network.containsKey(a)|| network.containsKey(b)){
+            if(network.containsKey(a)) {
+                Road roadab = new Road(a, b, length);
+                network.get(a).add(roadab);
+            }else{
+                Road roadba = new Road(b,a,length);
+                network.get(b).add(roadba);
+            }
+        }
+    }
+
+    // returnerer byens position.
+    public Position position(City city){
+        return new Position(city, city, 0);
+
+    }
+
+    // Gør klar til at påbegynde rejse.
+    public Position readyToTravel(City from, City to){
+
+        if(!from.equals(to)){
+            for (Road road : getRoads(from)) {
+                if(road.getTo().equals(to)){
+                    return new Position(from, to, road.getLength());
+                }
+            }
+        }
+            return position(from);
+    }
 }
+
