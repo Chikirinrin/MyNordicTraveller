@@ -56,6 +56,6 @@ public class Position
 
     public void turnAround(){
         distance = total-distance;
-    }
+    }hej
 
 }

@@ -11,7 +11,7 @@ public class Road implements Comparable<Road>
     private City from;
     private City to;
     private int length;
-
+hej
     /**
      * Constructor for objects of class Road
      */

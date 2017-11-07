@@ -52,5 +52,5 @@ public class City implements Comparable<City>
     public int arrive(){
         value = value - country.bonus(value);
         return value;
-    } hejd
+    }
 }

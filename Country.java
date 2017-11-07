@@ -62,7 +62,7 @@ public class Country
 
         }
         return 0;
-    }
+    }hej
 
     //Tilføjer veje mellem a og b.
     public void addRoads(City a, City b, int length){
